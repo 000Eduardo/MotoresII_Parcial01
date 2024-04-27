@@ -16,6 +16,34 @@ public class WinCondition : MonoBehaviourPun
 
     private bool isPlayerAlive;
     private bool isEnemyAlive;
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (view.IsMine)
+
+            if (other.gameObject.tag == "Player")
+            {
+
+                lose_menu.SetActive(true);
+                //object[] datas = new object[] { isPlayerAlive };
+                //PhotonNetwork.RaiseEvent(PLAYER_DEATH_EVENT, datas, RaiseEventOptions.Default, SendOptions.SendUnreliable);
+                //base.photonView.RPC("Win", RpcTarget.Others);
+
+            }
+
+
+
+    }
+
+    [PunRPC]
+    private void Win()
+    {
+        win_menu.SetActive(true);
+    }
+
+
     //private const byte PLAYER_DEATH_EVENT=0;
 
 
@@ -46,29 +74,7 @@ public class WinCondition : MonoBehaviourPun
     //    }
     //}
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(view.IsMine)
-        
-        if (other.gameObject.tag == "Player")
-        {
-            
-                lose_menu.SetActive(true);
-                //object[] datas = new object[] { isPlayerAlive };
-                //PhotonNetwork.RaiseEvent(PLAYER_DEATH_EVENT, datas, RaiseEventOptions.Default, SendOptions.SendUnreliable);
-                //base.photonView.RPC("Win", RpcTarget.Others);
 
-            }
-
-        
-
-    }
-
-    [PunRPC]
-    private void Win()
-    {
-        win_menu.SetActive(true);
-    }
 
 
 
