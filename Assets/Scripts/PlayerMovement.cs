@@ -28,22 +28,7 @@ public class PlayerMovement : MonoBehaviour
 
             Vector3 forceMovement = new Vector3(_inputHorizontal * speed, 0, _inputVertical * speed);
             rb.AddForce(forceMovement);
-/*
-            if (_inputHorizontal !=0 || _inputVertical != 0)
-            {
-                
-            }
-            else
-            {
-                rb.velocity = new Vector3(0, 0, 0);
-            }
 
-            
-            if (Input.GetKey("d")) transform.position += Vector3.right * speed * Time.deltaTime;
-            if (Input.GetKey("a")) transform.position += Vector3.left * speed * Time.deltaTime;
-            if (Input.GetKey("w")) transform.position += Vector3.forward * speed * Time.deltaTime;
-            if (Input.GetKey("s")) transform.position += Vector3.back * speed * Time.deltaTime;
-            */
         }
     }
 
